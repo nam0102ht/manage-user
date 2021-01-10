@@ -56,7 +56,8 @@ public class TeamsDepartmentDBTask extends UracTask implements IDBTask {
                 List<JsonArray> lst = resultSet.getResults();
                 JsonArray row;
                 JsonArray res = new JsonArray();
-                JsonObject department = input.getData();
+                Object obj = input.getData();
+                JsonObject deparment = obj == null ? new JsonObject() : input.getData();
                 int i;
                 for(i=0; i<lst.size();i++){
                     row = lst.get(i);
@@ -64,7 +65,7 @@ public class TeamsDepartmentDBTask extends UracTask implements IDBTask {
                 }
                 input.setResultCode(0);
                 input.setResult(true);
-                input.setData(department.put("teams", res));
+                input.setData(deparment.put("teams", res));
                 whenDone.handle(input);
                 return;
             }

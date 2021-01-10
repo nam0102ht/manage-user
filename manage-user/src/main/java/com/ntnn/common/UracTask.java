@@ -1,13 +1,9 @@
 package com.ntnn.common;
 
-import com.ntnn.model.TaskData;
-import io.vertx.core.Handler;
 import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.jdbc.JDBCClient;
 import lombok.extern.log4j.Log4j2;
-
-import java.io.File;
 
 @Log4j2
 public abstract class UracTask extends AbstractTask {
