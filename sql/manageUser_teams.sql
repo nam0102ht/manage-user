@@ -1,0 +1,14 @@
+INSERT INTO manageUser.teams (id, name, departmentId) VALUES (1, 'HR', 3);
+INSERT INTO manageUser.teams (id, name, departmentId) VALUES (2, 'CB', 3);
+INSERT INTO manageUser.teams (id, name, departmentId) VALUES (3, 'Administrator', 3);
+INSERT INTO manageUser.teams (id, name, departmentId) VALUES (4, 'Marketing', 4);
+INSERT INTO manageUser.teams (id, name, departmentId) VALUES (5, 'Growth', 4);
+INSERT INTO manageUser.teams (id, name, departmentId) VALUES (6, 'Ads', 4);
+INSERT INTO manageUser.teams (id, name, departmentId) VALUES (7, 'SEO', 4);
+INSERT INTO manageUser.teams (id, name, departmentId) VALUES (8, 'Accounting', 6);
+INSERT INTO manageUser.teams (id, name, departmentId) VALUES (9, 'Risk', 5);
+INSERT INTO manageUser.teams (id, name, departmentId) VALUES (10, 'Law', 5);
+INSERT INTO manageUser.teams (id, name, departmentId) VALUES (11, 'Front-End', 7);
+INSERT INTO manageUser.teams (id, name, departmentId) VALUES (12, 'Back-End', 7);
+INSERT INTO manageUser.teams (id, name, departmentId) VALUES (13, 'DB', 7);
+INSERT INTO manageUser.teams (id, name, departmentId) VALUES (14, 'Sale', 8);
