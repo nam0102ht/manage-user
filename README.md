@@ -3,6 +3,11 @@ RUN file SQL in folder sql
 RUN manage-user.sql to create table
 THEN run all file to create data
 
+All project use:
+LIB: Vertx
+Languages: Java 1.8
+Database use: MYSQL
+
 
 RUN project via IDE
 Then use command curl to get data
