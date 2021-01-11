@@ -8,7 +8,7 @@ LIB: Vertx
 Languages: Java 1.8
 Database use: MYSQL
 
-Config address SQL:
+Config SQL at UracTask.java
 
 ```public JDBCClient getSqlClient() {
         if (mSQLClient == null) {
