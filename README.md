@@ -8,6 +8,21 @@ LIB: Vertx
 Languages: Java 1.8
 Database use: MYSQL
 
+Config address SQL:
+
+```public JDBCClient getSqlClient() {
+        if (mSQLClient == null) {
+            JsonObject mSQLClientConfig = new JsonObject()
+                    .put("url", "jdbc:mysql://localhost:3306/manageUser")
+                    .put("driver_class", "com.mysql.jdbc.Driver")
+                    .put("user", "root")
+                    .put("password", "root")
+                    .put("max_pool_size", 30);
+            mSQLClient = JDBCClient.createShared(getVertx(), mSQLClientConfig);
+            log.info("Get MySQL client!");
+        }
+        return mSQLClient;
+    }```
 
 RUN project via IDE
 Then use command curl to get data
