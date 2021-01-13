@@ -34,6 +34,6 @@ public abstract class AbstractProcessTask extends AbstractTask{
     }
 
     public String getResultKey() {
-        return "MomoProcess";
+        return "AbstractProcessTask";
     }
 }
