@@ -4,7 +4,7 @@
 * [Run file script SQL](#run-file-script-info)
 * [Technologies](#technologies)
 * [Setup](#setup)
-* [Model Database](#model-database)
+* [Diagram Database](#diagram-database)
 
 ## Run file script SQL
 RUN file SQL in folder sql
