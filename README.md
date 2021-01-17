@@ -1,13 +1,23 @@
 # manage-user
-RUN file SQL in folder sql
-RUN manage-user.sql to create table
-THEN run all file to create data
 
+#### Table of contents
+* [Run file script](#general-info)
+* [Technologies](#technologies)
+* [Setup](#setup)
+* [Model Database](#model-database)
+
+###Run file script 
+RUN file SQL in folder sql
+RUN manage-user.sql to create table and Data
+
+###Technologies
 All project use:
+```
 LIB: Vertx
 Languages: Java 1.8
 Database use: MYSQL
-
+```
+###Setup
 Config SQL at UracTask.java
 
 ```public JDBCClient getSqlClient() {
@@ -24,5 +34,9 @@ Config SQL at UracTask.java
         return mSQLClient;
     }
 ```   
-
+####RUN
 RUN project via IDE
+
+###Model Database
+![Algorithm schema](./img/modelDatabase.PNG)
+
