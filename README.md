@@ -1,12 +1,12 @@
 # manage-user
 
 #### Table of contents
-* [Run file script](#general-info)
+* [Run file script SQL](#run-file-script-info)
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Model Database](#model-database)
 
-##Run file script 
+## Run file script SQL
 RUN file SQL in folder sql
 RUN manage-user.sql to create table and Data
 
