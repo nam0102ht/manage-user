@@ -1,6 +1,5 @@
 package com.ntnn.workflow;
 
-import com.ntnn.common.AbstractProcessTask;
 import com.ntnn.common.AbstractTask;
 import com.ntnn.common.TaskWorkFlow;
 import com.ntnn.constant.BackendErr;
