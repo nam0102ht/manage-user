@@ -5,11 +5,9 @@ import com.ntnn.common.TaskWorkFlow;
 import com.ntnn.constant.TypeCheck;
 import com.ntnn.model.TaskData;
 import com.ntnn.task.CheckUserRoleTask;
-import com.ntnn.task.ProductsDBTask;
 import com.ntnn.task.SubProductDBTask;
 import io.vertx.core.Handler;
 import io.vertx.core.Vertx;
-import io.vertx.core.json.JsonObject;
 
 public class WorkFlowAddNumberProducts extends TaskWorkFlow {
     public WorkFlowAddNumberProducts(String name, Vertx vertx) {
@@ -20,7 +18,7 @@ public class WorkFlowAddNumberProducts extends TaskWorkFlow {
             protected void exec(TaskData input, Handler<TaskData> whenDone) {
                 SubProductDBTask insertSubProduct =
                         new SubProductDBTask("InsertSubProduct", vertx, TypeCheck.INSERT);
-                insertSubProduct.run(input, async -> {whenDone.handle(input);});
+                insertSubProduct.run(input, async -> { whenDone.handle(input); });
             }
         });
     }

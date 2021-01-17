@@ -25,7 +25,7 @@ public class Products {
         this.name = jo.getString("name", null);
         this.colorId = jo.getInteger("colorId", 0);
         this.colorName = jo.getString("colorName", null);
-        this.price = jo.getDouble("price", null);
+        this.price = jo.getDouble("price", 0.0);
         this.brandId = jo.getInteger("brandId", 0);
         this.brandName = jo.getString("brandName", null);
         this.description = jo.getString("description", null);

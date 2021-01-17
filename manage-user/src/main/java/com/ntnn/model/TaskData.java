@@ -16,7 +16,18 @@ public class TaskData {
     private String queue;
     private long userId;
     private JsonObject data;
+
     public TaskData() {}
+
+    public TaskData(String str) {
+        if(str == null){ return; }
+        JsonObject jo = new JsonObject(str);
+        this.requestId = jo.getString("requestId", "");
+        this.resultCode = jo.getInteger("resultCode", 0);
+        this.result = jo.getBoolean("result", false);
+        this.queue = jo.getString("queue", "");
+        this.data = jo.getJsonObject("data", new JsonObject());
+    }
 
     public String toString(){
         return new JsonObject()
