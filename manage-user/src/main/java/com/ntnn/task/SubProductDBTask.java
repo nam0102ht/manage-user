@@ -2,8 +2,6 @@ package com.ntnn.task;
 
 import com.ntnn.common.UracTask;
 import com.ntnn.constant.TypeCheck;
-import com.ntnn.model.Persons;
-import com.ntnn.model.Products;
 import com.ntnn.model.SubProducts;
 import com.ntnn.model.TaskData;
 import io.vertx.core.Handler;
@@ -13,7 +11,6 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.ext.jdbc.JDBCClient;
 import io.vertx.ext.sql.ResultSet;
 import lombok.extern.log4j.Log4j2;
-import netscape.javascript.JSObject;
 
 import java.util.List;
 
