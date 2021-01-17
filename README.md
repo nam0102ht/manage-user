@@ -37,7 +37,7 @@ Config SQL at UracTask.java
 ## RUN
 RUN project via IDE
 
-## Model Database
+## Diagram Database
 ![Algorithm schema](./img/modelDatabase.PNG)
 
 ## Test API
