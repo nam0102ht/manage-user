@@ -2,7 +2,8 @@ package com.ntnn.router;
 
 import com.ntnn.model.TaskData;
 import com.ntnn.verticle.AuthVerticle;
-import com.ntnn.verticle.EmployeesVerticle;
+import com.ntnn.verticle.OrderVerticle;
+import com.ntnn.verticle.ProductVerticle;
 import io.vertx.core.Vertx;
 import io.vertx.core.http.HttpServerResponse;
 import io.vertx.core.json.JsonObject;
@@ -24,14 +25,14 @@ public class MainRouter implements IManageRouter {
         HttpServerResponse response = context.response();
         context.request().bodyHandler(bodyHandler -> {
             final JsonObject body = bodyHandler.toJsonObject();
-            log.info(body.toString());
+            log.info("call person verticle by: " +body.toString());
             TaskData taskData = new TaskData();
             taskData.setRequestId(UUID.randomUUID().toString());
             taskData.setResult(body.getBoolean("result"));
             taskData.setResultCode(body.getInteger("resultCode"));
             taskData.setQueue(body.getString("queue"));
             taskData.setData(body.getJsonObject("data"));
-            taskData.setUserId(body.getString("userId"));
+            taskData.setUserId(body.getLong("userId"));
             vertx.eventBus().send(AuthVerticle.class.getName(), taskData.toString(), reply -> {
                 // Write to the response and end it
                 response.putHeader("content-type", "application/json");
@@ -41,28 +42,46 @@ public class MainRouter implements IManageRouter {
     }
 
     @Override
-    public void addDepartment(RoutingContext context) {
-
-    }
-
-    @Override
-    public void employees(RoutingContext context) {
+    public void updateProducts(RoutingContext context) {
         HttpServerResponse response = context.response();
         context.request().bodyHandler(bodyHandler -> {
             final JsonObject body = bodyHandler.toJsonObject();
-            log.info(body.toString());
+            log.info("Call update verticle by: " + body.toString());
             TaskData taskData = new TaskData();
             taskData.setRequestId(UUID.randomUUID().toString());
             taskData.setResult(body.getBoolean("result"));
             taskData.setResultCode(body.getInteger("resultCode"));
             taskData.setQueue(body.getString("queue"));
             taskData.setData(body.getJsonObject("data"));
-            taskData.setUserId(body.getString("userId"));
-            vertx.eventBus().send(EmployeesVerticle.class.getName(), taskData.toString(), reply -> {
+            taskData.setUserId(body.getLong("userId"));
+            vertx.eventBus().send(ProductVerticle.class.getName(), taskData.toString(), reply -> {
                 // Write to the response and end it
                 response.putHeader("content-type", "application/json");
                 response.end(reply.result().body().toString());
             });
         });
     }
+
+    @Override
+    public void orderProduct(RoutingContext context) {
+        HttpServerResponse response = context.response();
+        context.request().bodyHandler(bodyHandler -> {
+            JsonObject body = bodyHandler.toJsonObject();
+            log.info("Call orders by: " + body.toString());
+            TaskData taskData = new TaskData();
+            taskData.setRequestId(UUID.randomUUID().toString());
+            taskData.setResult(body.getBoolean("result"));
+            taskData.setResultCode(body.getInteger("resultCode"));
+            taskData.setQueue(body.getString("queue"));
+            taskData.setData(body.getJsonObject("data"));
+            taskData.setUserId(body.getLong("userId"));
+            vertx.eventBus().send(OrderVerticle.class.getName(), taskData.toString(), reply -> {
+                // Write to the response and end it
+                response.putHeader("content-type", "application/json");
+                response.end(reply.result().body().toString());
+            });
+        });
+    }
+
+
 }

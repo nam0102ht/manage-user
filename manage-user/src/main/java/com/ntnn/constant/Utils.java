@@ -14,7 +14,7 @@ public class Utils {
 
     public TaskData convertDataTaskJson(JsonObject jo){
         TaskData taskData = new TaskData();
-        taskData.setUserId(jo.getString("userId"));
+        taskData.setUserId(jo.getLong("userId"));
         taskData.setQueue(jo.getString("queue"));
         taskData.setResult(jo.getBoolean("result"));
         taskData.setResultCode(jo.getInteger("resultCode"));

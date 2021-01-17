@@ -1,0 +1,1 @@
+INSERT INTO `manage-user`.products (id, name, colorId, price, brandId, description) VALUES (1, 'Bag LV', 7, 800, 1, 'This is bag''s brand LV.');

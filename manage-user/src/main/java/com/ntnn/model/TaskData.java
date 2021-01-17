@@ -14,7 +14,7 @@ public class TaskData {
     private Integer resultCode;
     private Boolean result;
     private String queue;
-    private String userId;
+    private long userId;
     private JsonObject data;
     public TaskData() {}
 

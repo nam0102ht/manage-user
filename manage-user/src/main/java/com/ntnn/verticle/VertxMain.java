@@ -11,8 +11,8 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class VertxMain extends AbstractVerticle {
     public static final String API_USER = "/api/v2/users";
-    public static final String API_DEPARTMENT = "/api/v2/departments";
-    public static final String API_ALL_EMPLOYEES = "/api/v2/employees";
+    public static final String API_PRODUCTS = "/api/v2/products";
+    public static final String API_ORDER = "/api/v2/orders";
 
     @Override
     public void start() throws Exception {
@@ -20,10 +20,10 @@ public class VertxMain extends AbstractVerticle {
         IManageRouter mainRouter = new MainRouter(vertx);
         router.route(HttpMethod.POST, API_USER)
                 .handler(mainRouter::addUser);
-        router.route(HttpMethod.POST, API_DEPARTMENT)
-                .handler(mainRouter::addDepartment);
-        router.route(HttpMethod.POST, API_ALL_EMPLOYEES)
-                .handler(mainRouter::employees);
+        router.route(HttpMethod.POST, API_PRODUCTS)
+                .handler(mainRouter::updateProducts);
+        router.route(HttpMethod.POST, API_ORDER)
+                .handler(mainRouter::orderProduct);
         HttpServer httpServer = vertx.createHttpServer();
         httpServer.requestHandler(router).listen(8081, httpServerAsyncResult -> {
             if(httpServerAsyncResult.succeeded()) {

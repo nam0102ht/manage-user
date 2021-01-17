@@ -1,0 +1,7 @@
+mysql:
+  maximumPoolSize: 20,
+  driver_class: "com.mysql.jdbc.Driver",
+  port: 3306,
+  jdbcUrl: "jdbc:mysql://localhost/manageUser",
+  username: "root",
+  password: "root"

@@ -20,7 +20,6 @@ public class Persons {
     private String email;
     private String phoneNumber;
     private Integer roleId;
-    private Integer teamId;
     private String extras;
 
     public Persons(String str) {
@@ -32,8 +31,7 @@ public class Persons {
         this.address = jo.getString("address", "");
         this.email = jo.getString("email", "");
         this.phoneNumber = jo.getString("phoneNumber", "");
-        this.roleId = jo.getInteger("roleId", 3);
-        this.teamId = jo.getInteger("teamId", 3);
+        this.roleId = jo.getInteger("roleId", 2);
         this.extras = jo.getString("extras", "");
     }
 }

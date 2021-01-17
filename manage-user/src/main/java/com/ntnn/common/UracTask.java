@@ -15,11 +15,10 @@ public abstract class UracTask extends AbstractTask {
     public JDBCClient getSqlClient() {
         if (mSQLClient == null) {
             JsonObject mSQLClientConfig = new JsonObject()
-                    .put("url", "jdbc:mysql://localhost:3306/manageUser")
-                    .put("driver_class", "com.mysql.jdbc.Driver")
+                    .put("url", "jdbc:mysql://localhost:3306/manage-user")
+                    .put("driverClass", "com.mysql.jdbc.Driver")
                     .put("user", "root")
-                    .put("password", "root")
-                    .put("max_pool_size", 30);
+                    .put("password", "root");
             mSQLClient = JDBCClient.createShared(getVertx(), mSQLClientConfig);
             log.info("Get MySQL client!");
         }
