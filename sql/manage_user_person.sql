@@ -1,1 +1,0 @@
-INSERT INTO `manage-user`.person (id, firstname, lastname, dob, address, email, phoneNumber, extras, roleId) VALUES (1, 'Nhat Nam', 'Nguyen Trung', null, '37 Ca Van Thinh', 'nam@gmail.com', '0939382758', null, 1);

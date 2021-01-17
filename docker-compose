@@ -1,0 +1,24 @@
+version: '3'
+services:
+  mysql-connector:
+    image: mysql:5.7
+      restart: always
+      environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: root
+      ports:
+        - "3306:3306"
+      volumes:
+        - ./sql/manage-user.sql:/manage-user.sql
+  manage-user:
+    image: nhatnam/manage-user
+    container_name: manage-user
+    build:
+      context: ./manage-user
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql-connector
+    ports:
+      - "8001:8001"
+    links:
+      - mysql-connector

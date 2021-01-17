@@ -1,0 +1,212 @@
+{
+	"info": {
+		"_postman_id": "c47e922a-ae20-47d8-87d8-68c5358c7fdb",
+		"name": "vdc-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SELECT all users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"resultCode\": 200,\r\n    \"result\": true,\r\n    \"userId\": 0,\r\n    \"queue\": \"SELECT\",\r\n    \"data\": {}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v2/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"resultCode\": 200,\r\n    \"result\": true,\r\n    \"userId\": 0,\r\n    \"queue\": \"INSERT\",\r\n    \"data\": {\r\n        \"userReq\": {\r\n            \"firstName\": \"Van B\",\r\n            \"lastName\": \"Nguyen\",\r\n            \"address\": \"72 Hoxton, Los Angel Les\",\r\n            \"email\": \"vanb@gmail.com\",\r\n            \"phoneNumber\": \"0919131722\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v2/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"resultCode\": 200,\r\n    \"result\": true,\r\n    \"userId\": 0,\r\n    \"queue\": \"INSERT\",\r\n    \"data\": {\r\n        \"userReq\": {\r\n            \"phoneNumber\": \"0939382758\"\r\n        },\r\n        \"product\": {\r\n            \"name\": \"Banana Bottom\",\r\n            \"colorId\": 3,\r\n            \"price\": 560,\r\n            \"brandId\": 1,\r\n            \"description\": \"This is Banana Bottom\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v2/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v2",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert sub_products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"resultCode\": 200,\r\n    \"result\": true,\r\n    \"userId\": 0,\r\n    \"queue\": \"ADD_NUMBER\",\r\n    \"data\": {\r\n        \"userReq\": {\r\n            \"phoneNumber\": \"0939382758\"\r\n        },\r\n        \"sub_products\": {\r\n            \"productId\": 4,\r\n            \"number\": 5\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v2/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v2",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"resultCode\": 200,\r\n    \"result\": true,\r\n    \"userId\": 0,\r\n    \"queue\": \"UPDATE\",\r\n    \"data\": {\r\n        \"userReq\": {\r\n            \"phoneNumber\": \"0939382758\"\r\n        },\r\n        \"productReq\": {\r\n            \"id\": 3,\r\n            \"name\": \"Mantantu Top\",\r\n            \"colorId\": 1,\r\n            \"price\": 280,\r\n            \"brandId\": 2,\r\n            \"description\": \"This is Mantantu top update update\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v2/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v2",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Orders",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"resultCode\": 200,\r\n    \"result\": true,\r\n    \"userId\": 0,\r\n    \"queue\": \"ORDERS\",\r\n    \"data\": {\r\n        \"userReq\": {\r\n            \"phoneNumber\": \"0939382755\",\r\n            \"firstName\": \"Van B\",\r\n            \"lastName\": \"Nguyen\",\r\n            \"address\": \"128 Los Angel Les, P13, Binh Thanh\",\r\n            \"email\": \"vanb@gmail.com\"\r\n        },\r\n        \"products\": [\r\n            {\r\n                \"productId\": 3,\r\n                \"number\": 2\r\n            },\r\n            {\r\n                \"productId\": 4,\r\n                \"number\": 3\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v2/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v2",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"resultCode\": 200,\r\n    \"result\": true,\r\n    \"userId\": 0,\r\n    \"queue\": \"SELECT\",\r\n    \"data\": {\r\n        \"sort\": 1,\r\n        \"filter\": \"name\",\r\n        \"regex\": \"L\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v2/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v2",
+						"products"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
