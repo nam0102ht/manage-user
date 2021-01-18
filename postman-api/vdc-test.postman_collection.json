@@ -70,7 +70,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"resultCode\": 200,\r\n    \"result\": true,\r\n    \"userId\": 0,\r\n    \"queue\": \"INSERT\",\r\n    \"data\": {\r\n        \"userReq\": {\r\n            \"phoneNumber\": \"0939382758\"\r\n        },\r\n        \"product\": {\r\n            \"name\": \"Banana Bottom\",\r\n            \"colorId\": 3,\r\n            \"price\": 560,\r\n            \"brandId\": 1,\r\n            \"description\": \"This is Banana Bottom\"\r\n        }\r\n    }\r\n}",
+					"raw": "{\r\n    \"resultCode\": 200,\r\n    \"result\": true,\r\n    \"userId\": 0,\r\n    \"queue\": \"INSERT\",\r\n    \"data\": {\r\n        \"userReq\": {\r\n            \"phoneNumber\": \"0939382758\"\r\n        },\r\n        \"productReq\": {\r\n            \"name\": \"Cococa Nata\",\r\n            \"colorId\": 3,\r\n            \"price\": 800,\r\n            \"brandId\": 1,\r\n            \"description\": \"This is Cococa Conata\"\r\n        }\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -187,6 +187,35 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"resultCode\": 200,\r\n    \"result\": true,\r\n    \"userId\": 0,\r\n    \"queue\": \"SELECT\",\r\n    \"data\": {\r\n        \"sort\": 1,\r\n        \"filter\": \"name\",\r\n        \"regex\": \"L\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v2/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v2",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"resultCode\": 200,\r\n    \"result\": true,\r\n    \"userId\": 0,\r\n    \"queue\": \"DELETE\",\r\n    \"data\": {\r\n        \"userReq\": {\r\n            \"phoneNumber\": \"0939382758\"\r\n        },\r\n        \"productReq\": {\r\n            \"id\": 8,\r\n            \"name\": \"Cococa Nata\",\r\n            \"colorId\": 3,\r\n            \"price\": 800,\r\n            \"brandId\": 1,\r\n            \"description\": \"This is Cococa Conata\"\r\n        }\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
