@@ -1,6 +1,7 @@
 package com.ntnn.task;
 
 import com.ntnn.common.AbstractTask;
+import com.ntnn.constant.BackendErr;
 import com.ntnn.constant.TypeCheck;
 import com.ntnn.model.TaskData;
 import com.ntnn.verticle.AuthVerticle;
@@ -21,6 +22,8 @@ public class CheckUserRoleTask extends AbstractTask {
         dbTaskSelect.run(input, async -> {
             if (!async.getResult()) {
                 async.setData(new JsonObject().put("message", "Can't select user"));
+                async.setResult(false);
+                async.setResultCode(BackendErr.FAIL);
                 whenDone.handle(async);
                 return;
             }

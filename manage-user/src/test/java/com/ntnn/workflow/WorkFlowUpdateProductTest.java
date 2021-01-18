@@ -14,13 +14,13 @@ import org.junit.runner.RunWith;
 
 @Log4j2
 @RunWith(VertxUnitRunner.class)
-public class WorkFlowAddNumberProductsTest extends BaseTestTask {
-    WorkFlowAddNumberProducts workFlow;
+public class WorkFlowUpdateProductTest extends BaseTestTask {
+    WorkFlowUpdateProduct workFlow;
 
     @Before
     public void init() {
         super.init();
-        workFlow = new WorkFlowAddNumberProducts("WorkFlowAddNumberProductsTest", vertx);
+        workFlow = new WorkFlowUpdateProduct("WorkFlowUpdateProduct", vertx);
         suite = TestSuite.create(vertx);
     }
 
@@ -28,7 +28,7 @@ public class WorkFlowAddNumberProductsTest extends BaseTestTask {
     public void testUserNotFound(TestContext testContext) {
         Async async = testContext.async();
         suite.test("user aren't found", context -> {
-            String str = "{\"resultCode\":200,\"result\":true,\"userId\":0,\"queue\":\"ADD_NUMBER\",\"data\":{\"userReq\":{\"phoneNumber\":\"0939382733\"},\"sub_products\":{\"productId\":4,\"number\":5}}}";
+            String str = "{\"resultCode\":200,\"result\":true,\"userId\":0,\"queue\":\"UPDATE\",\"data\":{\"userReq\":{\"phoneNumber\":\"0939382111\"},\"productReq\":{\"id\":3,\"name\":\"Mantantu Top\",\"colorId\":1,\"price\":280,\"brandId\":2,\"description\":\"This is Mantantu top update update\"}}}";
             TaskData taskData = new TaskData(str);
             workFlow.run(taskData, whenDone -> {
                 log.info(whenDone);
@@ -45,7 +45,7 @@ public class WorkFlowAddNumberProductsTest extends BaseTestTask {
     public void testUserAccessDenied(TestContext testContext) {
         Async async = testContext.async();
         suite.test("user access deny", context -> {
-            String str = "{\"resultCode\":200,\"result\":true,\"userId\":0,\"queue\":\"ADD_NUMBER\",\"data\":{\"userReq\":{\"phoneNumber\":\"0939382799\"},\"sub_products\":{\"productId\":4,\"number\":5}}}";
+            String str = "{\"resultCode\":200,\"result\":true,\"userId\":0,\"queue\":\"UPDATE\",\"data\":{\"userReq\":{\"phoneNumber\":\"0939382799\"},\"productReq\":{\"id\":3,\"name\":\"Mantantu Top\",\"colorId\":1,\"price\":280,\"brandId\":2,\"description\":\"This is Mantantu top update update\"}}}";
             TaskData taskData = new TaskData(str);
             workFlow.run(taskData, whenDone -> {
                 log.info(whenDone);
@@ -61,8 +61,8 @@ public class WorkFlowAddNumberProductsTest extends BaseTestTask {
     @Test
     public void testUserInsertSuccess(TestContext testContext) {
         Async async = testContext.async();
-        suite.test("user insert success", context -> {
-            String str = "{\"resultCode\":200,\"result\":true,\"userId\":0,\"queue\":\"ADD_NUMBER\",\"data\":{\"userReq\":{\"phoneNumber\":\"0939382758\"},\"sub_products\":{\"productId\":4,\"number\":5}}}";
+        suite.test("user delete success", context -> {
+            String str = "{\"resultCode\":200,\"result\":true,\"userId\":0,\"queue\":\"UPDATE\",\"data\":{\"userReq\":{\"phoneNumber\":\"0939382758\"},\"productReq\":{\"id\":3,\"name\":\"Mantantu Top\",\"colorId\":1,\"price\":280,\"brandId\":2,\"description\":\"This is Mantantu top update update\"}}}";
             TaskData taskData = new TaskData(str);
             workFlow.run(taskData, whenDone -> {
                 testContext.assertEquals(whenDone.getResult(), true);
