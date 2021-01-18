@@ -17,6 +17,7 @@ public class VertxMain extends AbstractVerticle {
     @Override
     public void start() throws Exception {
         Router router = Router.router(vertx);
+        // Main router
         IManageRouter mainRouter = new MainRouter(vertx);
         router.route(HttpMethod.POST, API_USER)
                 .handler(mainRouter::addUser);
@@ -24,10 +25,17 @@ public class VertxMain extends AbstractVerticle {
                 .handler(mainRouter::updateProducts);
         router.route(HttpMethod.POST, API_ORDER)
                 .handler(mainRouter::orderProduct);
+
+        // Create Server
         HttpServer httpServer = vertx.createHttpServer();
         httpServer.requestHandler(router).listen(8081, httpServerAsyncResult -> {
             if(httpServerAsyncResult.succeeded()) {
+                log.info("---Made by: Nguyen Trung Nhat Nam--");
+                log.info("-- Name project: Manage Orders ----");
                 log.info("Service is running with port: "+8081);
+                log.info("-----------------------------------");
+                log.info("---Router is running at VertxMain--");
+                log.info("-----------------------------------");
             }
         });
     }

@@ -43,5 +43,56 @@ RUN project via IDE
 ## Test API
 I'm use Postman to test API, you can import from postman-api/vdc-test.postman_collection.json
 
-## Flow API
+## What should know?
+```
+1. I'm using vertx you should flow 3 Main Class to read code (ServiceMain, VertxMain, ${name}Verticle)
+2. Focus class MainRouter to see event bus send to consum
+3. Focus data request Exp: "queue": "INSERT", in here it will push to WorkFlow
+4. Can see name to descript WorkFlow do works
+```
+### Guide use insert products
+####We will insert product through curl: 
+```
+curl --location --request POST 'localhost:8081/api/v2/products' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "resultCode": 200,
+    "result": true,
+    "userId": 0,
+    "queue": "INSERT",
+    "data": {
+        "userReq": {
+            "phoneNumber": "0939382758"
+        },
+        "productReq": {
+            "name": "Cococa Nata",
+            "colorId": 3,
+            "price": 800,
+            "brandId": 1,
+            "description": "This is Cococa Conata"
+        }
+    }
+}'
+```
+####Then we will insert number product through curl: 
+```
+curl --location --request POST 'localhost:8081/api/v2/products' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "resultCode": 200,
+    "result": true,
+    "userId": 0,
+    "queue": "ADD_NUMBER",
+    "data": {
+        "userReq": {
+            "phoneNumber": "0939382758"
+        },
+        "sub_products": {
+            "productId": 4,
+            "number": 5
+        }
+    }
+}'
+```
+
 
